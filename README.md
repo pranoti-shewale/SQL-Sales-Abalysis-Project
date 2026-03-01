@@ -44,7 +44,6 @@ Key SQL Analysis
 6. Loss Making Products
 7. Top Customers by Sales
 8. Monthly Sales Trend
-9. Orders Above Average Sales (Subquery)
 
 Key Insights
 
