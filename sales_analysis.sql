@@ -70,7 +70,7 @@ ORDER BY total_profit DESC LIMIT 10;
 SELECT `Product Name`, SUM(Profit) AS total_profit
 FROM superstore_sales
 GROUP BY `Product Name`
-HAVING total_profit < 0
+HAVING SUM(Profit)< 0
 ORDER BY total_profit;
 
 -- Orders with Sales Greater than Average (Subquery)
@@ -109,8 +109,20 @@ customer_name VARCHAR(100),
 region VARCHAR(50)
 );
 
+-- Region Wise Average Profit
+SELECT Region, AVG(Profit) AS avg_profit
+FROM superstore_sales
+GROUP BY Region
+ORDER BY avg_profit DESC;
+
 -- Example Aggregation Query
 SELECT s.`Customer Name`, SUM(s.Sales) AS total_sales, s.Region
 FROM superstore_sales s
 GROUP BY s.`Customer Name`, s.Region
 ORDER BY total_sales DESC;
+
+-- Example Join Query
+SELECT s.`Customer Name`, s.Region, c.customer_name
+FROM superstore_sales s
+LEFT JOIN customers c
+ON s.`Customer ID` = c.customer_id;
